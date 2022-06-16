@@ -113,7 +113,7 @@ final class Column
 
         try {
             // bypassing call to AbstractColumn->__call method (or specialized column method)
-            call_user_func_array([$column, $this->type], $this->typeOptions);
+            call_user_func_array([$column, $this->type], $this->typeOptions, $this->field->getAttributes());
         } catch (\Throwable $e) {
             throw new ColumnException(
                 "Invalid column type definition in '{$column->getTable()}'.'{$column->getName()}'",
