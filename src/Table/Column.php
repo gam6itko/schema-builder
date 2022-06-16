@@ -137,7 +137,7 @@ final class Column
         }
 
         if (method_exists($column, 'setAttributes')) {
-            $column->setAttributes((array) $this->field->getAttributes());
+            $column->setAttributes(iterator_to_array($this->field->getAttributes()));
         }
     }
 
